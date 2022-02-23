@@ -8,7 +8,7 @@
 import UIKit
 
 class AlertViewController: UIViewController {
-
+    
     @IBOutlet var simpleAlertButton: UIButton!
     @IBOutlet var okCancelAlertButton: UIButton!
     @IBOutlet var threeAlertButton: UIButton!
@@ -22,7 +22,7 @@ class AlertViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     
     @IBAction func simpleAlertButtonTapped(_ sender: UIButton) {
         print("Simple Alert Button")
@@ -42,6 +42,24 @@ class AlertViewController: UIViewController {
     
     @IBAction func okCancelAlertButtonTapped(_ sender: UIButton) {
         print("OK / CANCEL Alert Button")
+        let okCancelAlertTitle = "OK / Cancel Alert"
+        let okCancelAlertMessage = "This is Ok / Cancel Alert Message"
+        let okButton = "OK"
+        let cancelButton = "Cancel"
+        
+        let okCancelAlertController = UIAlertController(title: okCancelAlertTitle, message: okCancelAlertMessage, preferredStyle: .alert)
+        let okButtonAction = UIAlertAction(title: okButton, style: .cancel) { _ in
+            Swift.debugPrint("OK Button Tapped")
+        }
+        let cancelButtonAction = UIAlertAction(title: cancelButton, style: .default) { _ in
+            Swift.debugPrint("Cancel Button Tapped")
+        }
+        
+        okCancelAlertController.addAction(okButtonAction)
+        okCancelAlertController.addAction(cancelButtonAction)
+        
+        present(okCancelAlertController, animated: true, completion: nil)
+        
     }
     
     @IBAction func threeAlertButtonTapped(_ sender: UIButton) {
