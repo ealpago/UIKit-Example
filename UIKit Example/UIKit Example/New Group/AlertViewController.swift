@@ -93,7 +93,29 @@ class AlertViewController: UITableViewController{
         present(threeButtonAlertController, animated: true, completion: nil)
     }
     
-    func textEntryAlertFunc() {}
+    func textEntryAlertFunc() {
+        let title = "Text Entry"
+        let message = "This is Text Entry message"
+        let cancelButton = "Cancel"
+        let okButton = "OK"
+        let textEntryAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelButtonTapped = UIAlertAction(title: cancelButton, style: .cancel) { _ in
+            Swift.debugPrint("Cancel Button Tapped")
+        }
+        let okButtonTapped = UIAlertAction(title: okButton, style: .default) { _ in
+            Swift.debugPrint("OK Button Tapped")
+
+        }
+        
+        textEntryAlertController.addTextField { _ in
+            print("")
+        }
+        textEntryAlertController.addAction(cancelButtonTapped)
+        textEntryAlertController.addAction(okButtonTapped)
+        
+        present(textEntryAlertController, animated: true, completion: nil)
+    }
     func secureTextAlertFunc() {}
     
     func confirmCancelAction() {}
