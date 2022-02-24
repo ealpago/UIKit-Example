@@ -7,47 +7,54 @@
 
 import UIKit
 
-class AlertViewController: UIViewController {
+class AlertViewController: UITableViewController{
     
-    @IBOutlet var simpleAlertButton: UIButton!
-    @IBOutlet var okCancelAlertButton: UIButton!
-    @IBOutlet var threeAlertButton: UIButton!
-    @IBOutlet var textEntryAlertButton: UIButton!
-    @IBOutlet var secureTextEntryAlertButton : UIButton!
-    @IBOutlet var confirmCancelButton: UIButton!
-    @IBOutlet var destructiveButton: UIButton!
+    private enum AlertTableViewSection: Int {
+        case alertSection
+        case actionSection
+    }
     
+    private enum AlertStyle: Int {
+        case simpleAlert
+        case okCancelAlert
+        case threeButtonAlert
+        case textEntryAlert
+        case secureTextEntry
+    }
+    
+    private enum ActionStyle: Int {
+        case confirmCancelAction
+        case destructiveAction
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    
-    @IBAction func simpleAlertButtonTapped(_ sender: UIButton) {
-        print("Simple Alert Button")
-        let simpleAlertTitle = "Simple Alert Title"
-        let simpleAlertMeesage = "This is Simple Alert Message"
-        let simpleAlertCancelButtonTitle = "OK"
         
-        let simpleAlertController = UIAlertController(title: simpleAlertTitle, message: simpleAlertMeesage, preferredStyle: .alert)
+    func simpleAlertFunc() {
+        let title = "Simple Alert Title"
+        let message = "This is Simple Alert message"
+        let simpleAlertCancelButton = "OK"
         
-        let simpleAlertCancelAction = UIAlertAction(title: simpleAlertCancelButtonTitle, style: .cancel) { _ in
-            Swift.debugPrint("Cancel Button Tapped")
+        let simpleAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let simpleAlertCancelAction = UIAlertAction(title: simpleAlertCancelButton, style: .cancel) { _ in
+            Swift.debugPrint("Simple Alert Cancel")
         }
         
         simpleAlertController.addAction(simpleAlertCancelAction)
+        
         present(simpleAlertController, animated: true, completion: nil)
     }
     
-    @IBAction func okCancelAlertButtonTapped(_ sender: UIButton) {
-        print("OK / CANCEL Alert Button")
-        let okCancelAlertTitle = "OK / Cancel Alert"
-        let okCancelAlertMessage = "This is Ok / Cancel Alert Message"
+    func okCancelAlertFunc() {
+        let title = "OK / Cancel Alert Title"
+        let message = "This is OK / Cancel Alert message"
         let okButton = "OK"
         let cancelButton = "Cancel"
         
-        let okCancelAlertController = UIAlertController(title: okCancelAlertTitle, message: okCancelAlertMessage, preferredStyle: .alert)
+        let okCancelAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okButtonAction = UIAlertAction(title: okButton, style: .cancel) { _ in
             Swift.debugPrint("OK Button Tapped")
         }
@@ -59,27 +66,69 @@ class AlertViewController: UIViewController {
         okCancelAlertController.addAction(cancelButtonAction)
         
         present(okCancelAlertController, animated: true, completion: nil)
+    }
+    
+    func threeAlertFunc() {
+        let title = "Three Alert"
+        let message = "This is Three Alert message"
+        let firstButton = "First Button"
+        let secondButton = "Second Button"
+        let cancelButton = "Cancel"
         
+        let threeButtonAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let firstButtonAction = UIAlertAction(title: firstButton, style: .default) { _ in
+            Swift.debugPrint("First Button Tapped")
+        }
+        let secondButtonAction = UIAlertAction(title: secondButton, style: .default) { _ in
+            Swift.debugPrint("Second Button Tapped")
+        }
+        let cancelButtonAction = UIAlertAction(title: cancelButton, style: .cancel) { _ in
+            Swift.debugPrint("Cancel Button Tapped")
+        }
+        
+        threeButtonAlertController.addAction(firstButtonAction)
+        threeButtonAlertController.addAction(secondButtonAction)
+        threeButtonAlertController.addAction(cancelButtonAction)
+        
+        present(threeButtonAlertController, animated: true, completion: nil)
     }
     
-    @IBAction func threeAlertButtonTapped(_ sender: UIButton) {
-        print("Three Alert Button")
-    }
+    func textEntryAlertFunc() {}
+    func secureTextAlertFunc() {}
     
-    @IBAction func textEntryAlertButtonTapped(_ sender: UIButton) {
-        print("Text Entry Alert Button")
-    }
-    
-    @IBAction func secureTextEntryAlertButtonTapped(_ sender: UIButton) {
-        print("Secure Text Entry Alert Button")
-    }
-    
-    @IBAction func confirmCancelButtonTapped(_ sender: UIButton) {
-        print("Confirm Cancel Alert Button")
-    }
-    
-    @IBAction func destructiveButtonTapped(_ sender: UIButton) {
-        print("Destrucitve Alert Button")
-    }
-    
+    func confirmCancelAction() {}
+    func destructiveAction() {}
 }
+
+extension AlertViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case AlertTableViewSection.alertSection.rawValue:
+            switch indexPath.row{
+            case AlertStyle.simpleAlert.rawValue:
+                simpleAlertFunc()
+            case AlertStyle.okCancelAlert.rawValue:
+                okCancelAlertFunc()
+            case AlertStyle.threeButtonAlert.rawValue:
+                threeAlertFunc()
+            case AlertStyle.textEntryAlert.rawValue:
+                textEntryAlertFunc()
+            case AlertStyle.secureTextEntry.rawValue:
+                secureTextAlertFunc()
+            default: break
+            }
+        case AlertTableViewSection.actionSection.rawValue:
+            switch indexPath.row {
+            case ActionStyle.confirmCancelAction.rawValue:
+                confirmCancelAction()
+            case ActionStyle.destructiveAction.rawValue:
+                destructiveAction()
+            default: break
+            }
+        default: break
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
