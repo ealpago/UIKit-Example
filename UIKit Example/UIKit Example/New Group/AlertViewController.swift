@@ -119,7 +119,24 @@ class AlertViewController: UITableViewController{
     func secureTextAlertFunc() {}
     
     func confirmCancelAction() {}
-    func destructiveAction() {}
+    func destructiveAction() {
+        let message = "Destructive action message"
+        let destructiveButton = "Destruction"
+        let okButton = "OK"
+        
+        let destructiveController = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        let destructiveButtonTapped = UIAlertAction(title: destructiveButton, style: .destructive) { _ in
+            print("Destructive Button Tapped")
+        }
+        let okButtonTapped = UIAlertAction(title: okButton, style: .default) { _ in
+            print("OK Button Tapped")
+        }
+        
+        destructiveController.addAction(destructiveButtonTapped)
+        destructiveController.addAction(okButtonTapped)
+        
+        present(destructiveController, animated: true, completion: nil)
+    }
 }
 
 extension AlertViewController {
