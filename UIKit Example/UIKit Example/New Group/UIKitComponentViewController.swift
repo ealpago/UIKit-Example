@@ -43,6 +43,17 @@ extension UIKitComponentViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = tableViewArray[indexPath.row]
+        
+        let switchView = UISwitch(frame: .zero)
+        switchView.setOn(false, animated: true)
+        switchView.tag = indexPath.row
+        cell.accessoryView = switchView
+        switchView.addTarget(self, action: #selector(switchTapped), for: .valueChanged)
+     
         return cell
+    }
+    
+    @objc func switchTapped(_ sender: UISwitch){
+        print("Switch is \(sender.isOn ? "ON" : "OFf")")
     }
 }

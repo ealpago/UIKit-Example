@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,7 +38,9 @@
                         <viewLayoutGuide key="safeArea" id="s7m-i3-EOZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="PickerViews" id="qi2-46-Nze"/>
+                    <tabBarItem key="tabBarItem" title="PickerViews" id="qi2-46-Nze">
+                        <imageReference key="selectedImage" image="calendar" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="dateLabel" destination="AZi-u7-fr9" id="GvN-tU-HKV"/>
                         <outlet property="datePicker" destination="OBt-07-oHV" id="G6n-gM-A94"/>
@@ -89,7 +92,9 @@
                             <constraint firstItem="QQa-sC-4Mc" firstAttribute="top" secondItem="K5d-BG-Khy" secondAttribute="top" constant="10" id="b9Z-V4-QHr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="UIKit Component" id="5cR-ee-0vz"/>
+                    <tabBarItem key="tabBarItem" title="UIKit Component" id="5cR-ee-0vz">
+                        <imageReference key="selectedImage" image="rectangle.righthalf.inset.filled.arrow.right" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="nbaSegmented" destination="oWP-Mr-N9U" id="S6d-1u-awJ"/>
                         <outlet property="nbaTableView" destination="jqf-Bz-edJ" id="wni-57-zKp"/>
@@ -260,7 +265,9 @@
                             <outlet property="delegate" destination="7us-Kf-edB" id="FeX-61-gNW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Alert Table View" id="FkM-z2-XNm"/>
+                    <tabBarItem key="tabBarItem" title="Alert Table View" id="FkM-z2-XNm">
+                        <imageReference key="selectedImage" image="square.grid.3x2" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Alert Controllers" id="jBv-Vb-DCE"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
@@ -270,6 +277,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="rectangle.righthalf.inset.filled.arrow.right" catalog="system" width="128" height="93"/>
+        <image name="square.grid.3x2" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
