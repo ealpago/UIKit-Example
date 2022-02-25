@@ -56,33 +56,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hfO-S5-6wg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JDr-Xu-3vI">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JDr-Xu-3vI" id="glT-tt-yao">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QQa-sC-4Mc">
+                                <rect key="frame" x="10" y="54" width="394" height="749"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oWP-Mr-N9U">
+                                        <rect key="frame" x="146.5" y="0.0" width="101" height="32"/>
+                                        <segments>
+                                            <segment title="East"/>
+                                            <segment title="West"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="changeSegment:" destination="jVa-ji-KWC" eventType="valueChanged" id="eKk-wB-AeM"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jqf-Bz-edJ">
+                                        <rect key="frame" x="5" y="39" width="384" height="710"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jqf-Bz-edJ" firstAttribute="leading" secondItem="QQa-sC-4Mc" secondAttribute="leading" constant="5" id="NkR-gX-TeY"/>
+                                    <constraint firstItem="jqf-Bz-edJ" firstAttribute="top" secondItem="oWP-Mr-N9U" secondAttribute="bottom" constant="8" id="uVx-aW-N34"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K5d-BG-Khy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K5d-BG-Khy" firstAttribute="trailing" secondItem="QQa-sC-4Mc" secondAttribute="trailing" constant="10" id="38l-W6-Paq"/>
+                            <constraint firstItem="QQa-sC-4Mc" firstAttribute="leading" secondItem="K5d-BG-Khy" secondAttribute="leading" constant="10" id="Oua-7u-Wzb"/>
+                            <constraint firstItem="K5d-BG-Khy" firstAttribute="bottom" secondItem="QQa-sC-4Mc" secondAttribute="bottom" constant="10" id="VPe-QE-Hdk"/>
+                            <constraint firstItem="QQa-sC-4Mc" firstAttribute="top" secondItem="K5d-BG-Khy" secondAttribute="top" constant="10" id="b9Z-V4-QHr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="UIKit Component" id="5cR-ee-0vz"/>
                     <connections>
-                        <outlet property="componentTableView" destination="hfO-S5-6wg" id="cQm-1b-IFH"/>
+                        <outlet property="nbaSegmented" destination="oWP-Mr-N9U" id="S6d-1u-awJ"/>
+                        <outlet property="nbaTableView" destination="jqf-Bz-edJ" id="wni-57-zKp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kF7-ms-hti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="1112"/>
+            <point key="canvasLocation" x="-113.04347826086958" y="1111.6071428571429"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CUq-qw-sER">
