@@ -39,6 +39,7 @@ class UIKitViewController: UIViewController {
         structCells.append(TableViewItemModel(cellClass: "switch", label: "Second Switch"))
         structCells.append(TableViewItemModel(cellClass: "switch", label: "Third Switch"))
     }
+   
 }
 
 extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
@@ -62,7 +63,12 @@ extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
         else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as! SwitchTableViewCell
             cell.label.text = structCells[indexPath.row].label
+            cell.cellSwitch.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
             return cell
         }
+    }
+    @objc func switchTapped(_ sender: UISwitch) -> Bool {
+        print("Switch is \(sender.isOn ? "ON" : "OFf")")
+        return sender.isOn
     }
 }
