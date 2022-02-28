@@ -14,6 +14,13 @@
 		D117A4E827C6261300306DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D117A4E627C6261300306DF3 /* LaunchScreen.storyboard */; };
 		D1299BF827C643BB00C923CE /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1299BF727C643BB00C923CE /* AlertViewController.swift */; };
 		D1299BFA27C643D100C923CE /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1299BF927C643D100C923CE /* PickerViewController.swift */; };
+		D152A76627CC03F800C2EFFE /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152A76427CC03F800C2EFFE /* AlertTableViewCell.swift */; };
+		D152A76727CC03F800C2EFFE /* AlertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D152A76527CC03F800C2EFFE /* AlertTableViewCell.xib */; };
+		D152A76C27CC042D00C2EFFE /* SegmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152A76A27CC042D00C2EFFE /* SegmentTableViewCell.swift */; };
+		D152A76D27CC042D00C2EFFE /* SegmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D152A76B27CC042D00C2EFFE /* SegmentTableViewCell.xib */; };
+		D152A77027CC046500C2EFFE /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152A76E27CC046500C2EFFE /* SwitchTableViewCell.swift */; };
+		D152A77127CC046500C2EFFE /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D152A76F27CC046500C2EFFE /* SwitchTableViewCell.xib */; };
+		D152A77627CCA42600C2EFFE /* UIKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152A77527CCA42600C2EFFE /* UIKitViewController.swift */; };
 		D19EAD5A27C8EB990089A74C /* UIKitComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EAD5927C8EB980089A74C /* UIKitComponentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +34,13 @@
 		D117A4E927C6261300306DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1299BF727C643BB00C923CE /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		D1299BF927C643D100C923CE /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		D152A76427CC03F800C2EFFE /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
+		D152A76527CC03F800C2EFFE /* AlertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertTableViewCell.xib; sourceTree = "<group>"; };
+		D152A76A27CC042D00C2EFFE /* SegmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTableViewCell.swift; sourceTree = "<group>"; };
+		D152A76B27CC042D00C2EFFE /* SegmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentTableViewCell.xib; sourceTree = "<group>"; };
+		D152A76E27CC046500C2EFFE /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		D152A76F27CC046500C2EFFE /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		D152A77527CCA42600C2EFFE /* UIKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewController.swift; sourceTree = "<group>"; };
 		D19EAD5927C8EB980089A74C /* UIKitComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitComponentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,10 +74,12 @@
 		D117A4DA27C6261300306DF3 /* UIKit Example */ = {
 			isa = PBXGroup;
 			children = (
-				D1299BF627C643A000C923CE /* New Group */,
+				D152A77227CC08CF00C2EFFE /* Views */,
+				D1299BF627C643A000C923CE /* Controllers */,
+				D152A76327CBFC1B00C2EFFE /* TableViewCellXIB */,
+				D152A76227CBFB8800C2EFFE /* TableViewCellControllers */,
 				D117A4DB27C6261300306DF3 /* AppDelegate.swift */,
 				D117A4DD27C6261300306DF3 /* SceneDelegate.swift */,
-				D117A4E127C6261300306DF3 /* Main.storyboard */,
 				D117A4E427C6261300306DF3 /* Assets.xcassets */,
 				D117A4E627C6261300306DF3 /* LaunchScreen.storyboard */,
 				D117A4E927C6261300306DF3 /* Info.plist */,
@@ -71,14 +87,44 @@
 			path = "UIKit Example";
 			sourceTree = "<group>";
 		};
-		D1299BF627C643A000C923CE /* New Group */ = {
+		D1299BF627C643A000C923CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D1299BF727C643BB00C923CE /* AlertViewController.swift */,
 				D1299BF927C643D100C923CE /* PickerViewController.swift */,
 				D19EAD5927C8EB980089A74C /* UIKitComponentViewController.swift */,
+				D152A77527CCA42600C2EFFE /* UIKitViewController.swift */,
 			);
-			path = "New Group";
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D152A76227CBFB8800C2EFFE /* TableViewCellControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D152A76427CC03F800C2EFFE /* AlertTableViewCell.swift */,
+				D152A76A27CC042D00C2EFFE /* SegmentTableViewCell.swift */,
+				D152A76E27CC046500C2EFFE /* SwitchTableViewCell.swift */,
+			);
+			path = TableViewCellControllers;
+			sourceTree = "<group>";
+		};
+		D152A76327CBFC1B00C2EFFE /* TableViewCellXIB */ = {
+			isa = PBXGroup;
+			children = (
+				D152A76527CC03F800C2EFFE /* AlertTableViewCell.xib */,
+				D152A76B27CC042D00C2EFFE /* SegmentTableViewCell.xib */,
+				D152A76F27CC046500C2EFFE /* SwitchTableViewCell.xib */,
+			);
+			name = TableViewCellXIB;
+			path = "TableViewCellXİB";
+			sourceTree = "<group>";
+		};
+		D152A77227CC08CF00C2EFFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D117A4E127C6261300306DF3 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +187,10 @@
 			files = (
 				D117A4E827C6261300306DF3 /* LaunchScreen.storyboard in Resources */,
 				D117A4E527C6261300306DF3 /* Assets.xcassets in Resources */,
+				D152A76727CC03F800C2EFFE /* AlertTableViewCell.xib in Resources */,
+				D152A77127CC046500C2EFFE /* SwitchTableViewCell.xib in Resources */,
 				D117A4E327C6261300306DF3 /* Main.storyboard in Resources */,
+				D152A76D27CC042D00C2EFFE /* SegmentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D152A76627CC03F800C2EFFE /* AlertTableViewCell.swift in Sources */,
+				D152A77027CC046500C2EFFE /* SwitchTableViewCell.swift in Sources */,
+				D152A77627CCA42600C2EFFE /* UIKitViewController.swift in Sources */,
 				D117A4DC27C6261300306DF3 /* AppDelegate.swift in Sources */,
+				D152A76C27CC042D00C2EFFE /* SegmentTableViewCell.swift in Sources */,
 				D1299BF827C643BB00C923CE /* AlertViewController.swift in Sources */,
 				D1299BFA27C643D100C923CE /* PickerViewController.swift in Sources */,
 				D117A4DE27C6261300306DF3 /* SceneDelegate.swift in Sources */,

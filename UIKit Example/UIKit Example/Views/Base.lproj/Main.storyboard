@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kF7-ms-hti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113.04347826086958" y="1111.6071428571429"/>
+            <point key="canvasLocation" x="-741" y="1112"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CUq-qw-sER">
@@ -117,11 +117,43 @@
                         <segue destination="7us-Kf-edB" kind="relationship" relationship="viewControllers" id="KZu-64-veu"/>
                         <segue destination="LWI-SD-4WN" kind="relationship" relationship="viewControllers" id="Gk2-3v-HCw"/>
                         <segue destination="jVa-ji-KWC" kind="relationship" relationship="viewControllers" id="tG3-f2-eUo"/>
+                        <segue destination="4FE-47-AOV" kind="relationship" relationship="viewControllers" id="OQ7-Kq-zMk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQq-cB-JNe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1448" y="385"/>
+        </scene>
+        <!--Table View-->
+        <scene sceneID="ATb-TM-wK3">
+            <objects>
+                <viewController id="4FE-47-AOV" customClass="UIKitViewController" customModule="UIKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cyN-Nr-lrP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ChD-4w-gA9">
+                                <rect key="frame" x="20" y="44" width="374" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qEd-iC-BUI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ChD-4w-gA9" firstAttribute="leading" secondItem="qEd-iC-BUI" secondAttribute="leading" constant="20" id="OlI-Ks-GoT"/>
+                            <constraint firstItem="qEd-iC-BUI" firstAttribute="bottom" secondItem="ChD-4w-gA9" secondAttribute="bottom" id="by4-pa-9LX"/>
+                            <constraint firstItem="ChD-4w-gA9" firstAttribute="top" secondItem="qEd-iC-BUI" secondAttribute="top" id="pOx-4G-cyK"/>
+                            <constraint firstItem="qEd-iC-BUI" firstAttribute="trailing" secondItem="ChD-4w-gA9" secondAttribute="trailing" constant="20" id="wKZ-AF-lkL"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Table View" id="dKk-rz-CXE"/>
+                    <connections>
+                        <outlet property="tableView" destination="ChD-4w-gA9" id="nWX-ZW-lG2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j41-CU-bB1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.521739130434788" y="1111.6071428571429"/>
         </scene>
         <!--Alert Controllers -->
         <scene sceneID="SND-4u-Aav">
@@ -273,7 +305,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEj-6z-g1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2933" y="1112"/>
+            <point key="canvasLocation" x="-2186" y="1112"/>
         </scene>
     </scenes>
     <resources>
