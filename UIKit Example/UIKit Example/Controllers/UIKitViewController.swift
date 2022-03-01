@@ -25,20 +25,13 @@ class UIKitViewController: UIViewController {
         case switchh
     }
     
-//    enum SectionType {
-//        case Alert
-//        case Segment
-//        case Switch
-//    }
-//
-    
     @IBOutlet var tableView: UITableView!
     
     var structCells:[TableViewItemModel] = []
     var cells:[TableViewSectionModel] = []
     
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         tableView.delegate = self
@@ -46,35 +39,18 @@ class UIKitViewController: UIViewController {
         tableView.register(UINib(nibName: "AlertTableViewCell", bundle: nil), forCellReuseIdentifier: "AlertCell")
         tableView.register(UINib(nibName: "SegmentTableViewCell", bundle: nil), forCellReuseIdentifier: "SegmentCell")
         tableView.register(UINib(nibName: "SwitchTableViewCell", bundle: nil), forCellReuseIdentifier: "SwitchCell")
-        
-        structCells.append(TableViewItemModel(cellType: .alert, label: "First Alert"))
-        structCells.append(TableViewItemModel(cellType: .alert, label: "Second Alert"))
-        structCells.append(TableViewItemModel(cellType: .alert, label: "Third Alert"))
-        structCells.append(TableViewItemModel(cellType: .segment, label: "First Segment"))
-        structCells.append(TableViewItemModel(cellType: .segment, label: "Second Segment"))
-        structCells.append(TableViewItemModel(cellType: .segment, label: "Third Segment "))
-        structCells.append(TableViewItemModel(cellType: .switchh, label: "First Switch"))
-        structCells.append(TableViewItemModel(cellType: .switchh, label: "Second Switch"))
-        structCells.append(TableViewItemModel(cellType: .switchh, label: "Third Switch"))
-        
-//        cells.append(TableViewSectionModel(title: "Alert", items: [TableViewItemModel(cellType: .alert, label: "Deneme alert")]))
-//        cells.append(TableViewSectionModel(title: "Alert", items: [TableViewItemModel(cellType: .alert, label: "Deneme alert")]))
-//        cells.append(TableViewSectionModel(title: "Alert", items: [TableViewItemModel(cellType: .alert, label: "Deneme alert")]))
-//        cells.append(TableViewSectionModel(title: "Segment", items: [TableViewItemModel(cellType: .segment, label: "Deneme segment")]))
-//        cells.append(TableViewSectionModel(title: "Segment", items: [TableViewItemModel(cellType: .segment, label: "Deneme segment")]))
-//        cells.append(TableViewSectionModel(title: "Segment", items: [TableViewItemModel(cellType: .segment, label: "Deneme segment")]))
-//        cells.append(TableViewSectionModel(title: "Switch",  items: [TableViewItemModel(cellType: .switchh, label: "Deneme switch")]))
-//        cells.append(TableViewSectionModel(title: "Switch", items: [TableViewItemModel(cellType: .switchh, label: "Deneme switch")]))
-//        cells.append(TableViewSectionModel(title: "Switch", items: [TableViewItemModel(cellType: .switchh, label: "Deneme switch")]))
+        let alertItems = [TableViewItemModel(cellType: .alert, label: "Firs alert")]
+        cells.append(TableViewSectionModel(title: "Alert", items: alertItems ))
+        cells.append(TableViewSectionModel(title: "Segment", items: [TableViewItemModel(cellType: .segment, label: "First segment"),
+                                                                     TableViewItemModel(cellType: .segment, label: "Second segment"),
+                                                                     TableViewItemModel(cellType: .segment, label: "Third segment")]))
+        cells.append(TableViewSectionModel(title: "Switch",  items: [TableViewItemModel(cellType: .switchh, label: "First switch"),
+                                                                     TableViewItemModel(cellType: .switchh, label: "Second switch"),
+                                                                     TableViewItemModel(cellType: .switchh, label: "Third switch")]))
     }
-    
-    
     //    func SectionModel(){
     //        var alertSectionModel = TableViewSectionModel(title: "Alert Section", items: [TableViewItemModel(cellType: .alert, label: "Alert")])
     //    }
-    
-    
-    
     func simpleAlertFunc() {
         let title = "Simple Alert Title"
         let message = "This is Simple Alert message"
@@ -93,32 +69,43 @@ class UIKitViewController: UIViewController {
 }
 
 extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return structCells.count
+        return cells[section].items.count
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return cells.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return cells[section].title
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if structCells[indexPath.row].cellType == .alert {
+        let itemModel = cells[indexPath.section].items[indexPath.row]
+        switch itemModel.cellType {
+        case .alert:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AlertCell", for: indexPath) as! AlertTableViewCell
-            cell.label.text = structCells[indexPath.row].label
+            cell.label.text = cells[indexPath.section].items[indexPath.row].label
             return cell
-        }
-        else if structCells[indexPath.row].cellType == .segment {
+        case .segment:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentCell", for: indexPath) as! SegmentTableViewCell
-            cell.label.text = structCells[indexPath.row].label
+            cell.label.text = cells[indexPath.section].items[indexPath.row].label
             return cell
-        }
-        else  {
+        case .switchh:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as! SwitchTableViewCell
-            let label = structCells[indexPath.row].label
+            let label = cells[indexPath.section].items[indexPath.row].label
             cell.label.text = label
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if structCells[indexPath.row].cellType == .alert {
+        if cells[indexPath.section].items[indexPath.row].cellType == .alert {
             simpleAlertFunc()
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

@@ -17,39 +17,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="197" translatesAutoresizingMaskIntoConstraints="NO" id="6jS-1H-cCn">
-                        <rect key="frame" x="5" y="5" width="340" height="31"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="6jS-1H-cCn">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWX-aY-Z0C">
-                                <rect key="frame" x="0.0" y="0.0" width="196" height="31"/>
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-6U-D3c">
-                                <rect key="frame" x="246" y="0.0" width="40" height="31"/>
+                                <rect key="frame" x="139.5" y="0.0" width="50" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2B-TV-f44">
+                                <rect key="frame" x="287.5" y="0.0" width="62.5" height="80"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gd7-xo-Ivh">
+                                        <rect key="frame" x="0.0" y="24.5" width="64.5" height="31"/>
+                                    </switch>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="044-66-njw"/>
-                                    <constraint firstAttribute="height" constant="30" id="cKh-uZ-DSp"/>
+                                    <constraint firstItem="gd7-xo-Ivh" firstAttribute="centerY" secondItem="M2B-TV-f44" secondAttribute="centerY" id="17y-8w-kII"/>
+                                    <constraint firstItem="gd7-xo-Ivh" firstAttribute="leading" secondItem="M2B-TV-f44" secondAttribute="leading" id="3Uy-vV-1hP"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gd7-xo-Ivh" secondAttribute="bottom" id="BDp-um-05R"/>
+                                    <constraint firstAttribute="trailing" secondItem="gd7-xo-Ivh" secondAttribute="trailing" id="JQL-FP-UOQ"/>
+                                    <constraint firstItem="gd7-xo-Ivh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M2B-TV-f44" secondAttribute="top" id="YCC-wx-LCL"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gd7-xo-Ivh">
-                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
-                            </switch>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="gd7-xo-Ivh" secondAttribute="trailing" constant="5" id="9EK-FA-grb"/>
-                            <constraint firstItem="gd7-xo-Ivh" firstAttribute="leading" secondItem="yxU-6U-D3c" secondAttribute="trailing" id="p6G-kF-YWd"/>
-                            <constraint firstItem="yxU-6U-D3c" firstAttribute="leading" secondItem="FWX-aY-Z0C" secondAttribute="trailing" constant="50" id="qxH-o6-Stz"/>
-                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="6jS-1H-cCn" secondAttribute="trailing" constant="5" id="5AU-1G-zqb"/>
-                    <constraint firstItem="6jS-1H-cCn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="YkQ-Kt-TNZ"/>
-                    <constraint firstItem="6jS-1H-cCn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="wuu-lq-G0P"/>
-                    <constraint firstAttribute="bottom" secondItem="6jS-1H-cCn" secondAttribute="bottom" constant="5" id="zYA-L8-RIi"/>
+                    <constraint firstAttribute="trailing" secondItem="6jS-1H-cCn" secondAttribute="trailing" id="DwH-Xs-Mnm"/>
+                    <constraint firstItem="6jS-1H-cCn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UqR-N2-tud"/>
+                    <constraint firstAttribute="bottom" secondItem="6jS-1H-cCn" secondAttribute="bottom" id="aKJ-0L-Wpb"/>
+                    <constraint firstItem="6jS-1H-cCn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ufe-Xk-oTi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -57,7 +61,7 @@
                 <outlet property="cellSwitch" destination="gd7-xo-Ivh" id="No1-j6-B48"/>
                 <outlet property="label" destination="FWX-aY-Z0C" id="C1l-3F-xtW"/>
             </connections>
-            <point key="canvasLocation" x="153.62318840579712" y="141.96428571428569"/>
+            <point key="canvasLocation" x="153.62318840579712" y="141.29464285714286"/>
         </tableViewCell>
     </objects>
     <resources>

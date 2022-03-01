@@ -23,5 +23,4 @@ class SegmentTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
 }
