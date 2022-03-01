@@ -15,7 +15,6 @@ class SwitchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellSwitch.isOn = false
         // Initialization code
     }
 
