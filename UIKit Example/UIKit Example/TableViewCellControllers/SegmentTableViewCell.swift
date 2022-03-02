@@ -9,6 +9,8 @@ import UIKit
 
 class SegmentTableViewCell: UITableViewCell {
     
+    static let SegmentCellIdentifier = "SegmentCell"
+    
     @IBOutlet var label: UILabel!
     @IBOutlet var segment: UISegmentedControl!
     

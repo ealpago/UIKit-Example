@@ -9,6 +9,8 @@ import UIKit
 
 class AlertTableViewCell: UITableViewCell {
     
+    static let AlertCellIdentifier = "AlertCell"
+    
     @IBOutlet var label: UILabel!
     
     override func awakeFromNib() {
@@ -21,5 +23,7 @@ class AlertTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
     
 }

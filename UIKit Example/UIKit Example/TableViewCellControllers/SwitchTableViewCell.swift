@@ -9,6 +9,8 @@ import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
 
+    static let SwitchCellIdentifier = "SwitchCell"
+    
     @IBOutlet var label: UILabel!
     @IBOutlet var cellSwitch: UISwitch!
 //    private var item:TableViewItemModel

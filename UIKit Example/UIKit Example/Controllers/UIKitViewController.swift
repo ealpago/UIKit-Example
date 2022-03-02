@@ -39,6 +39,7 @@ class UIKitViewController: UIViewController {
         tableView.register(UINib(nibName: "AlertTableViewCell", bundle: nil), forCellReuseIdentifier: "AlertCell")
         tableView.register(UINib(nibName: "SegmentTableViewCell", bundle: nil), forCellReuseIdentifier: "SegmentCell")
         tableView.register(UINib(nibName: "SwitchTableViewCell", bundle: nil), forCellReuseIdentifier: "SwitchCell")
+        
         let alertItems = [TableViewItemModel(cellType: .alert, label: "Firs alert")]
         cells.append(TableViewSectionModel(title: "Alert", items: alertItems ))
         cells.append(TableViewSectionModel(title: "Segment", items: [TableViewItemModel(cellType: .segment, label: "First segment"),
@@ -48,9 +49,7 @@ class UIKitViewController: UIViewController {
                                                                      TableViewItemModel(cellType: .switchh, label: "Second switch"),
                                                                      TableViewItemModel(cellType: .switchh, label: "Third switch")]))
     }
-    //    func SectionModel(){
-    //        var alertSectionModel = TableViewSectionModel(title: "Alert Section", items: [TableViewItemModel(cellType: .alert, label: "Alert")])
-    //    }
+  
     func simpleAlertFunc() {
         let title = "Simple Alert Title"
         let message = "This is Simple Alert message"
@@ -86,15 +85,15 @@ extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
         let itemModel = cells[indexPath.section].items[indexPath.row]
         switch itemModel.cellType {
         case .alert:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AlertCell", for: indexPath) as! AlertTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AlertTableViewCell.AlertCellIdentifier, for: indexPath) as! AlertTableViewCell
             cell.label.text = cells[indexPath.section].items[indexPath.row].label
             return cell
         case .segment:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentCell", for: indexPath) as! SegmentTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SegmentTableViewCell.SegmentCellIdentifier, for: indexPath) as! SegmentTableViewCell
             cell.label.text = cells[indexPath.section].items[indexPath.row].label
             return cell
         case .switchh:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchCell", for: indexPath) as! SwitchTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.SwitchCellIdentifier, for: indexPath) as! SwitchTableViewCell
             let label = cells[indexPath.section].items[indexPath.row].label
             cell.label.text = label
             return cell
