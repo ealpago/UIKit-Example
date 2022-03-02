@@ -30,7 +30,6 @@ class UIKitViewController: UIViewController {
     var structCells:[TableViewItemModel] = []
     var cells:[TableViewSectionModel] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,14 +39,19 @@ class UIKitViewController: UIViewController {
         tableView.register(UINib(nibName: "SegmentTableViewCell", bundle: nil), forCellReuseIdentifier: "SegmentCell")
         tableView.register(UINib(nibName: "SwitchTableViewCell", bundle: nil), forCellReuseIdentifier: "SwitchCell")
         
-        let alertItems = [TableViewItemModel(cellType: .alert, label: "Firs alert")]
+        let alertItems = [TableViewItemModel(cellType: .alert, label: "Firs alert"),
+                          TableViewItemModel(cellType: .alert, label: "Second alert"),
+                          TableViewItemModel(cellType: .alert, label: "Third alert")]
+        let segmentItems = [TableViewItemModel(cellType: .segment, label: "First segment"),
+                             TableViewItemModel(cellType: .segment, label: "Second segment"),
+                             TableViewItemModel(cellType: .segment, label: "Third segment")]
+        let switchItem = [TableViewItemModel(cellType: .switchh, label: "First switch"),
+                          TableViewItemModel(cellType: .switchh, label: "Second switch"),
+                          TableViewItemModel(cellType: .switchh, label: "Third switch")]
+        
         cells.append(TableViewSectionModel(title: "Alert", items: alertItems ))
-        cells.append(TableViewSectionModel(title: "Segment", items: [TableViewItemModel(cellType: .segment, label: "First segment"),
-                                                                     TableViewItemModel(cellType: .segment, label: "Second segment"),
-                                                                     TableViewItemModel(cellType: .segment, label: "Third segment")]))
-        cells.append(TableViewSectionModel(title: "Switch",  items: [TableViewItemModel(cellType: .switchh, label: "First switch"),
-                                                                     TableViewItemModel(cellType: .switchh, label: "Second switch"),
-                                                                     TableViewItemModel(cellType: .switchh, label: "Third switch")]))
+        cells.append(TableViewSectionModel(title: "Segment", items: segmentItems ))
+        cells.append(TableViewSectionModel(title: "Switch",  items: switchItem ))
     }
   
     func simpleAlertFunc() {
