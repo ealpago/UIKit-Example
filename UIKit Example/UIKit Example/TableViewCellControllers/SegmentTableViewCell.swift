@@ -27,7 +27,7 @@ class SegmentTableViewCell: UITableViewCell {
     }
     
     
-    func initiliaze(cellModel: TableViewItemModel){
+    func initialize(cellModel: TableViewItemModel){
         itemModel = cellModel
         setupCell()
     }

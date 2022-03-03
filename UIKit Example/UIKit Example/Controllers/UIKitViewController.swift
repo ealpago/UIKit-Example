@@ -58,17 +58,17 @@ extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
         case .alert:
             let cell = tableView.dequeueReusableCell(withIdentifier: AlertTableViewCell.AlertCellIdentifier, for: indexPath) as! AlertTableViewCell
             let model = cells[indexPath.section].items[indexPath.row]
-            cell.initiliaze(cellModel: model)
+            cell.initialize(cellModel: model)
             return cell
         case .segment:
             let cell = tableView.dequeueReusableCell(withIdentifier: SegmentTableViewCell.SegmentCellIdentifier, for: indexPath) as! SegmentTableViewCell
             let model = cells[indexPath.section].items[indexPath.row]
-            cell.initiliaze(cellModel: model)
+            cell.initialize(cellModel: model)
             return cell
         case .switchh:
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.SwitchCellIdentifier, for: indexPath) as! SwitchTableViewCell
             let model = cells[indexPath.section].items[indexPath.row]
-            cell.initiliaze(cellModel: model)
+            cell.initialize(cellModel: model)
             return cell
         }
     }

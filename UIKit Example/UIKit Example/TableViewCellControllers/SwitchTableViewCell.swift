@@ -27,7 +27,7 @@ class SwitchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func initiliaze(cellModel: TableViewItemModel){
+    func initialize(cellModel: TableViewItemModel){
         itemModel = cellModel
         setupCell()
     }
