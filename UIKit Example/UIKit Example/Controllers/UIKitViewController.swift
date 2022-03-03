@@ -11,7 +11,6 @@ class UIKitViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView?
     
-    var structCells:[TableViewItemModel] = []
     var cells:[TableViewSectionModel] = []
     
     override func viewDidLoad() {
@@ -41,7 +40,7 @@ class UIKitViewController: UIViewController {
 
 extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells[section].items.count
+        return (cells[section].items.count)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,30 +51,31 @@ extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
         return cells[section].title
     }
     
+    //let itemModel = cells[indexPath.section].items[indexPath.row]
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let itemModel = cells[indexPath.section].items[indexPath.row]
+        guard let itemModel = cells[indexPath.section].items[indexPath.row] else {return UITableViewCell()}
         switch itemModel.cellType {
         case .alert:
             let cell = tableView.dequeueReusableCell(withIdentifier: AlertTableViewCell.AlertCellIdentifier, for: indexPath) as! AlertTableViewCell
-            let model = cells[indexPath.section].items[indexPath.row]
+            let model = cells[indexPath.section].items[indexPath.row]!
             cell.initialize(cellModel: model)
             return cell
         case .segment:
             let cell = tableView.dequeueReusableCell(withIdentifier: SegmentTableViewCell.SegmentCellIdentifier, for: indexPath) as! SegmentTableViewCell
-            let model = cells[indexPath.section].items[indexPath.row]
+            let model = cells[indexPath.section].items[indexPath.row]!
             cell.initialize(cellModel: model)
             return cell
         case .switchh:
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.SwitchCellIdentifier, for: indexPath) as! SwitchTableViewCell
-            let model = cells[indexPath.section].items[indexPath.row]
+            let model = cells[indexPath.section].items[indexPath.row]!
             cell.initialize(cellModel: model)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if cells[indexPath.section].items[indexPath.row].cellType == .alert {
-        }
+        if cells[indexPath.section].items[indexPath.row]!.cellType == .alert {}
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

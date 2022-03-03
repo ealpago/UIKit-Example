@@ -13,17 +13,15 @@ class AlertTableViewCell: UITableViewCell {
     
     @IBOutlet var label: UILabel?
     private var itemModel: TableViewItemModel?
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        simpleAlertFunc()
+        //        simpleAlertFunc()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -38,20 +36,18 @@ class AlertTableViewCell: UITableViewCell {
         }
     }
     
-//    func simpleAlertFunc() {
-//        let title = "Simple Alert Title"
-//        let message = "This is Simple Alert message"
-//        let simpleAlertCancelButton = "OK"
-//
-//        let simpleAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//
-//        let simpleAlertCancelAction = UIAlertAction(title: simpleAlertCancelButton, style: .cancel) { _ in
-//            Swift.debugPrint("Simple Alert Cancel")
-//        }
-//
-//        simpleAlertController.addAction(simpleAlertCancelAction)
-//    }
-    
-    
-
+    func simpleAlertFunc() {
+        let title = "Simple Alert Title"
+        let message = "This is Simple Alert message"
+        let simpleAlertCancelButton = "OK"
+        
+        let simpleAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let simpleAlertCancelAction = UIAlertAction(title: simpleAlertCancelButton, style: .cancel) { _ in
+            Swift.debugPrint("Simple Alert Cancel")
+        }
+        
+        simpleAlertController.addAction(simpleAlertCancelAction)
+        UIKitViewController().present(simpleAlertController, animated: true, completion: nil)
+    }
 }

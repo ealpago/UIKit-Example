@@ -8,7 +8,7 @@
 import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
-
+    
     static let SwitchCellIdentifier = "SwitchCell"
     
     @IBOutlet var label: UILabel?
@@ -21,7 +21,7 @@ class SwitchTableViewCell: UITableViewCell {
         cellSwitch?.isOn = false
         cellSwitch?.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
@@ -37,7 +37,7 @@ class SwitchTableViewCell: UITableViewCell {
             label?.text = itemModel.label
         }
     }
-
+    
     @objc func switchTapped(_ sender: UISwitch) {
         print("Switch is \(sender.isOn ? "ON" : "OFf")")
     }

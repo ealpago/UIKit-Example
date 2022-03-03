@@ -10,7 +10,7 @@ import Foundation
 
 struct TableViewSectionModel {
     var title:String
-    var items:[TableViewItemModel] = []
+    var items:[TableViewItemModel?] = []
 }
 
 struct TableViewItemModel {
