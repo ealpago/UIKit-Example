@@ -11,15 +11,15 @@ class SwitchTableViewCell: UITableViewCell {
 
     static let SwitchCellIdentifier = "SwitchCell"
     
-    @IBOutlet var label: UILabel!
-    @IBOutlet var cellSwitch: UISwitch!
+    @IBOutlet var label: UILabel?
+    @IBOutlet var cellSwitch: UISwitch?
 //    private var item:TableViewItemModel
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        cellSwitch.isOn = false
-        cellSwitch.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
+        cellSwitch?.isOn = false
+        cellSwitch?.addTarget(self, action: #selector(switchTapped(_:)), for: .valueChanged)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,6 +33,5 @@ class SwitchTableViewCell: UITableViewCell {
 //
     @objc func switchTapped(_ sender: UISwitch) {
         print("Switch is \(sender.isOn ? "ON" : "OFf")")
-        
     }
 }

@@ -11,8 +11,8 @@ class SegmentTableViewCell: UITableViewCell {
     
     static let SegmentCellIdentifier = "SegmentCell"
     
-    @IBOutlet var label: UILabel!
-    @IBOutlet var segment: UISegmentedControl!
+    @IBOutlet var label: UILabel?
+    @IBOutlet var segment: UISegmentedControl?
     
     override func awakeFromNib() {
         
