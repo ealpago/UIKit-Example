@@ -17,12 +17,6 @@ class AlertTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        //        simpleAlertFunc()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     func initialize(cellModel: TableViewItemModel){
@@ -34,20 +28,5 @@ class AlertTableViewCell: UITableViewCell {
         if let itemModel = self.itemModel {
             label?.text = itemModel.label
         }
-    }
-    
-    func simpleAlertFunc() {
-        let title = "Simple Alert Title"
-        let message = "This is Simple Alert message"
-        let simpleAlertCancelButton = "OK"
-        
-        let simpleAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let simpleAlertCancelAction = UIAlertAction(title: simpleAlertCancelButton, style: .cancel) { _ in
-            Swift.debugPrint("Simple Alert Cancel")
-        }
-        
-        simpleAlertController.addAction(simpleAlertCancelAction)
-        UIKitViewController().present(simpleAlertController, animated: true, completion: nil)
     }
 }

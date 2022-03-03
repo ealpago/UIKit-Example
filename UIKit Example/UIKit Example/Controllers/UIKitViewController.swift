@@ -36,6 +36,21 @@ class UIKitViewController: UIViewController {
         cells.append(TableViewSectionModel(title: "Segment", items: segmentItems ))
         cells.append(TableViewSectionModel(title: "Switch",  items: switchItem ))
     }
+    
+    func simpleAlertFunc(){
+        let title = "Simple Alert Title"
+        let message = "This is Simple Alert message"
+        let simpleAlertCancelButton = "OK"
+        
+        let simpleAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let simpleAlertCancelAction = UIAlertAction(title: simpleAlertCancelButton, style: .cancel) { _ in
+            Swift.debugPrint("Simple Alert Cancel")
+        }
+        
+        simpleAlertController.addAction(simpleAlertCancelAction)
+        present(simpleAlertController, animated: true, completion: nil)
+    }
 }
 
 extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
@@ -51,9 +66,8 @@ extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
         return cells[section].title
     }
     
-    //let itemModel = cells[indexPath.section].items[indexPath.row]
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //section ayrı - items ayrı
         guard let itemModel = cells[indexPath.section].items[indexPath.row] else {return UITableViewCell()}
         switch itemModel.cellType {
         case .alert:
@@ -75,7 +89,8 @@ extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if cells[indexPath.section].items[indexPath.row]!.cellType == .alert {}
-        tableView.deselectRow(at: indexPath, animated: true)
+        if cells[indexPath.section].items[indexPath.row]!.cellType == .alert {
+            simpleAlertFunc()
+        }
     }
 }
