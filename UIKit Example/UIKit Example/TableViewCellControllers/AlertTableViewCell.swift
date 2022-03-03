@@ -12,6 +12,8 @@ class AlertTableViewCell: UITableViewCell {
     static let AlertCellIdentifier = "AlertCell"
     
     @IBOutlet var label: UILabel?
+    private var itemModel: TableViewItemModel?
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +25,17 @@ class AlertTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func initiliaze(cellModel: TableViewItemModel){
+        itemModel = cellModel
+        setupCell()
+    }
+    
+    func setupCell(){
+        if let itemModel = self.itemModel {
+            label?.text = itemModel.label
+        }
     }
     
 //    func simpleAlertFunc() {
@@ -39,8 +52,6 @@ class AlertTableViewCell: UITableViewCell {
 //        simpleAlertController.addAction(simpleAlertCancelAction)
 //    }
     
-//    func setupCell(model: ) -> <#return type#> {
-//        <#function body#>
-//    }
     
+
 }

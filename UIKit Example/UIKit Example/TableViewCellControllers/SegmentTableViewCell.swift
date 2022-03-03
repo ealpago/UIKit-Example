@@ -13,7 +13,7 @@ class SegmentTableViewCell: UITableViewCell {
     
     @IBOutlet var label: UILabel?
     @IBOutlet var segment: UISegmentedControl?
-    
+    private var itemModel: TableViewItemModel?
     override func awakeFromNib() {
         
         super.awakeFromNib()
@@ -24,5 +24,17 @@ class SegmentTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    
+    func initiliaze(cellModel: TableViewItemModel){
+        itemModel = cellModel
+        setupCell()
+    }
+    
+    func setupCell(){
+        if let itemModel = self.itemModel {
+            label?.text = itemModel.label
+        }
     }
 }

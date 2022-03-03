@@ -13,7 +13,7 @@ class SwitchTableViewCell: UITableViewCell {
     
     @IBOutlet var label: UILabel?
     @IBOutlet var cellSwitch: UISwitch?
-//    private var item:TableViewItemModel
+    private var itemModel:TableViewItemModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +27,17 @@ class SwitchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    func setupCell(item:TableViewItemModel){
-//        self.item = item
-//    }
-//
+    func initiliaze(cellModel: TableViewItemModel){
+        itemModel = cellModel
+        setupCell()
+    }
+    
+    func setupCell(){
+        if let itemModel = self.itemModel {
+            label?.text = itemModel.label
+        }
+    }
+
     @objc func switchTapped(_ sender: UISwitch) {
         print("Switch is \(sender.isOn ? "ON" : "OFf")")
     }

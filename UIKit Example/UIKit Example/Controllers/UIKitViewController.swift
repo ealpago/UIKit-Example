@@ -27,8 +27,8 @@ class UIKitViewController: UIViewController {
                           TableViewItemModel(cellType: .alert, label: "Second alert"),
                           TableViewItemModel(cellType: .alert, label: "Third alert")]
         let segmentItems = [TableViewItemModel(cellType: .segment, label: "First segment"),
-                             TableViewItemModel(cellType: .segment, label: "Second segment"),
-                             TableViewItemModel(cellType: .segment, label: "Third segment")]
+                            TableViewItemModel(cellType: .segment, label: "Second segment"),
+                            TableViewItemModel(cellType: .segment, label: "Third segment")]
         let switchItem = [TableViewItemModel(cellType: .switchh, label: "First switch"),
                           TableViewItemModel(cellType: .switchh, label: "Second switch"),
                           TableViewItemModel(cellType: .switchh, label: "Third switch")]
@@ -57,16 +57,18 @@ extension UIKitViewController: UITableViewDataSource, UITableViewDelegate {
         switch itemModel.cellType {
         case .alert:
             let cell = tableView.dequeueReusableCell(withIdentifier: AlertTableViewCell.AlertCellIdentifier, for: indexPath) as! AlertTableViewCell
-            cell.label?.text = cells[indexPath.section].items[indexPath.row].label
+            let model = cells[indexPath.section].items[indexPath.row]
+            cell.initiliaze(cellModel: model)
             return cell
         case .segment:
             let cell = tableView.dequeueReusableCell(withIdentifier: SegmentTableViewCell.SegmentCellIdentifier, for: indexPath) as! SegmentTableViewCell
-            cell.label?.text = cells[indexPath.section].items[indexPath.row].label
+            let model = cells[indexPath.section].items[indexPath.row]
+            cell.initiliaze(cellModel: model)
             return cell
         case .switchh:
             let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.SwitchCellIdentifier, for: indexPath) as! SwitchTableViewCell
-            let label = cells[indexPath.section].items[indexPath.row].label
-            cell.label?.text = label
+            let model = cells[indexPath.section].items[indexPath.row]
+            cell.initiliaze(cellModel: model)
             return cell
         }
     }
